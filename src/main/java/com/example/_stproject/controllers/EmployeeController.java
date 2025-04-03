@@ -1,12 +1,8 @@
 package com.example._stproject.controllers;
 
 import com.example._stproject.dto.EmployeeDto;
-import com.example._stproject.entities.EmployeeEntity;
-import com.example._stproject.repositories.EmployeeRepository;
 import com.example._stproject.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.List;
 
 
@@ -38,5 +34,9 @@ public class EmployeeController {
     public EmployeeDto updateEmployeeById(@RequestBody EmployeeDto employeeDto, @PathVariable(name = "employeeId") Long id){
 
         return employeeService.updateEmployeeById(employeeDto, id);
+    }
+    @DeleteMapping("/{employeeId}")
+    public void deleteEmployeeById(@PathVariable(name = "employeeId") Long id){
+        employeeService.deleteEmployeeById(id);
     }
 }

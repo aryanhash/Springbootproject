@@ -44,4 +44,7 @@ public class EmployeeService {
         EmployeeEntity savedemployeeEntity = employeeRepository.save(employeeEntity);
         return modelMapper.map(savedemployeeEntity, EmployeeDto.class);
     }
+    public void deleteEmployeeById(Long id) {
+        employeeRepository.deleteById(id);
+    }
 }
